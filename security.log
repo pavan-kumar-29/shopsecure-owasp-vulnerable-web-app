@@ -1,0 +1,6 @@
+2026-05-07 11:46:51,920 [INFO] [MODE] Switched to SECURE from ip=127.0.0.1
+2026-05-07 11:47:37,208 [INFO] [A07-FIXED][LOGIN-FAIL] username=' OR '1' = '1' -- ip=127.0.0.1
+2026-05-07 12:08:43,160 [INFO] [A01] Unauthorized admin access by user_id=None ip=127.0.0.1
+2026-05-07 12:15:28,126 [INFO] [MODE] Switched to SECURE from ip=127.0.0.1
+2026-05-07 12:15:28,167 [INFO] [A01] Unauthorized admin access by user_id=None ip=127.0.0.1
+2026-05-07 12:15:57,296 [INFO] [A01] Unauthorized admin access by user_id=None ip=127.0.0.1

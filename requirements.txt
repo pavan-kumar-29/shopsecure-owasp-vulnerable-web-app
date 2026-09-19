@@ -1,0 +1,60 @@
+# ============================================================
+# ShopSecure — OWASP Top 10 Demo Application
+# Python Package Requirements (Pinned Versions)
+# ============================================================
+# Install: pip install -r requirements.txt
+# ============================================================
+
+# Core web framework
+Flask==3.1.1
+
+# WSGI utility library (used internally by Flask)
+Werkzeug==3.1.3
+
+# Secure password hashing — used in Secure Mode (A02 fix)
+# bcrypt includes a built-in random salt per hash and a tunable cost factor.
+# Cost=12 means ~0.3 seconds per hash — 100 million times harder to crack than MD5.
+bcrypt==4.2.1
+
+# HTTP client library — used in SSRF demonstration (/fetch-url endpoint)
+requests==2.32.3
+
+# Template auto-escaping library — used by Jinja2/Flask
+# Prevents XSS by escaping user-supplied output in HTML templates
+MarkupSafe==3.0.2
+
+# ============================================================
+# A06 — Vulnerable Components Notes:
+#
+# VULNERABLE MODE demonstrates:
+#   - hashlib.md5 (Python stdlib) — intentionally weak, no salt, broken
+#     MD5 is crackable at 10+ billion hashes/second on modern GPUs
+#     This is the "vulnerable component" for A06 demonstration
+#   - DEBUG=True enables Werkzeug interactive debugger (RCE risk)
+#     Any visitor can execute Python on the server via error pages
+#   - No rate limiting — unlimited login attempts allowed
+#
+# SECURE MODE uses:
+#   - bcrypt==4.2.1 — computationally expensive, salted, industry standard
+#   - All versions pinned above — no version ranges (prevents surprise upgrades)
+#   - DEBUG=False — Werkzeug debugger disabled in all contexts
+#   - secrets.token_hex(32) — cryptographically random 256-bit SECRET_KEY
+# ============================================================
+
+# ============================================================
+# Setup Instructions:
+#
+# 1. Create virtual environment:
+#    python3 -m venv venv
+#    source venv/bin/activate    (Linux/Mac)
+#    venv\Scripts\activate       (Windows)
+#
+# 2. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 3. Run application:
+#    python3 app.py
+#
+# 4. Open browser:
+#    http://localhost:5000
+# ============================================================
